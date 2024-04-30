@@ -1,6 +1,5 @@
 {
   "name": "react-tailwind-phone-input",
-  "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
@@ -17,6 +16,8 @@
     "react-dom": "^18.2.0",
     "tsup": "^8.0.2"
   },
+  "license": "MIT",
+  "git repository": "https://github.com/OtchereDev/react-tailwind-phone-input",
   "devDependencies": {
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
