@@ -9,6 +9,8 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
+  "author": "Oliver Otchere <oliverotchere4@gmail.com> (https://github.com/OtchereDev)",
+  "homepage": "https://github.com/OtchereDev/react-tailwind-phone-input",
   "dependencies": {
     "libphonenumber-js": "^1.10.61",
     "react": "^18.2.0",
@@ -37,5 +39,19 @@
       "require": "./dist/index.js",
       "import": "./dist/index.js"
     }
-  }
+  },
+  "keywords": [
+    "react",
+    "phone",
+    "format",
+    "number",
+    "input",
+    "telephone",
+    "javascript",
+    "international",
+    "tel",
+    "localized",
+    "tailwindcss",
+    "i18n"
+  ]
 }
