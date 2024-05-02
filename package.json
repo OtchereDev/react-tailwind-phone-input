@@ -1,24 +1,36 @@
 {
   "name": "react-tailwind-phone-input",
-  "version": "0.0.0",
+  "version": "0.0.5",
   "type": "module",
+  "main": "dist/index.umd.js",
+  "module": "dist/index.es.js",
+  "typings": "dist/index.d.ts",
   "scripts": {
     "dev": "vite",
-    "build": "tsup",
+    "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prepare": "npm run build"
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
   },
   "author": "Oliver Otchere <oliverotchere4@gmail.com> (https://github.com/OtchereDev)",
   "homepage": "https://github.com/OtchereDev/react-tailwind-phone-input",
   "dependencies": {
     "libphonenumber-js": "^1.10.61",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "tsup": "^8.0.2"
+    "react-dom": "^18.2.0"
   },
   "license": "MIT",
   "git repository": "https://github.com/OtchereDev/react-tailwind-phone-input",
   "devDependencies": {
+    "@types/node": "^20.12.7",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
     "@typescript-eslint/eslint-plugin": "^7.2.0",
@@ -32,13 +44,14 @@
     "tailwindcss": "^3.4.3",
     "typescript": "^5.2.2",
     "vite": "^5.2.0",
+    "vite-plugin-css-injected-by-js": "^3.5.1",
+    "vite-plugin-dts": "^3.9.0",
     "vite-plugin-svgr": "^4.2.0"
   },
   "exports": {
-    "*": {
-      "types": "./dist/index.d.ts",
-      "require": "./dist/index.js",
-      "import": "./dist/index.js"
+    ".": {
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.umd.js"
     }
   },
   "keywords": [

@@ -13,9 +13,12 @@ const useLazySvgImport = (name: string) => {
     setLoading(true);
     const importIcon = async () => {
       try {
+        console.log(importRef.current);
         importRef.current = (
-          await import(`../assets/flags/${name}.svg`)
+          await import(`../assets/flags/${name}.svg?react`)
         ).default;
+
+        console.log(importRef.current);
       } catch (err) {
         console.log(err);
         setError(err as Error);
@@ -37,6 +40,7 @@ export const LazySvg = ({ name, ...props }: LazySvgProps) => {
   const { loading, error, Svg } = useLazySvgImport(name);
 
   if (error) {
+    console.log(error);
     return null;
   }
 
@@ -48,5 +52,5 @@ export const LazySvg = ({ name, ...props }: LazySvgProps) => {
     return null;
   }
 
-  return <Svg {...props} className="w-6 h-6" />;
+  return <Svg {...props} className="phone-w-6 phone-h-6" />;
 };

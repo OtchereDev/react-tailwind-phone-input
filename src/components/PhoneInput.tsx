@@ -1,3 +1,5 @@
+import "../index.css";
+
 import { useState } from "react";
 import Country from "../utils/countries";
 import { LazySvg } from "./LazySvg";
@@ -20,7 +22,7 @@ interface IPhoneNumber {
   defaultCountry?: CountryCode;
 }
 
-export default function PhoneInput({
+export function PhoneInput({
   name,
   onInputChange,
   buttonClassName,
@@ -44,25 +46,25 @@ export default function PhoneInput({
   };
 
   return (
-    <div className="w-full max-w-[400px] relative">
+    <div className="phone-w-full phone-max-w-[400px] phone-relative">
       <div
-        className={`border rounded-lg group items-center gap-2 focus-within:ring-2 ${
+        className={`phone-border phone-rounded-lg phone-group phone-items-center phone-gap-2 focus-within:phone-ring-2 ${
           countries.validatePhoneNumber(selectedIso2, phone)
-            ? "focus-within:ring-blue-600"
-            : "focus-within:ring-red-600"
-        } overflow-hidden flex ${containerClassName}`}
+            ? "focus-within:phone-ring-blue-600"
+            : "focus-within:phone-ring-red-600"
+        } phone-overflow-hidden phone-flex ${containerClassName}`}
       >
         <button
           onClick={toggleOpen}
           disabled={disabled}
-          className={`flex py-3 px-2 border-r gap-1 ${buttonClassName}`}
+          className={`phone-flex phone-py-3 phone-px-2 phone-border-r phone-gap-1 ${buttonClassName}`}
         >
           <LazySvg name={selectedIso2} />
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
             fill="currentColor"
-            className="w-6 h-6"
+            className="phone-w-6 phone-h-6"
           >
             <path
               fillRule="evenodd"
@@ -71,14 +73,14 @@ export default function PhoneInput({
             />
           </svg>
         </button>
-        <div className="flex-1 flex items-center gap-2">
-          <p className="text-gray-500">
+        <div className="phone-flex-1 phone-flex phone-items-center phone-gap-2">
+          <p className="phone-text-gray-500">
             +{countries.getSelectedCountryCode(selectedIso2)}
           </p>
           <input
             placeholder={countries.getPlaceholderFormat(selectedIso2)}
             type="text"
-            className={`flex-1 outline-none  py-3 pr-4 ${inputClassName}`}
+            className={`phone-flex-1 phone-outline-none  phone-py-3 phone-pr-4 ${inputClassName}`}
             value={phone}
             onChange={(e) => {
               const result = countries.formatUserInput(
@@ -106,13 +108,13 @@ export default function PhoneInput({
         </div>
       </div>
       {isOpen && (
-        <div className="absolute max-h-[200px] z-20 flex flex-col overflow-hidden w-full bg-white border top-full left-0 mt-2 rounded-lg">
-          <div className="flex py-3 px-4 gap-3 border-b items-center">
+        <div className="phone-absolute phone-max-h-[200px] phone-z-20 phone-flex phone-flex-col phone-overflow-hidden phone-w-full phone-bg-white phone-border phone-top-full phone-left-0 phone-mt-2 phone-rounded-lg">
+          <div className="phone-flex phone-py-3 phone-px-4 phone-gap-3 phone-border-b phone-items-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="currentColor"
-              className="w-5 h-5"
+              className="phone-w-5 phone-h-5"
             >
               <path
                 fillRule="evenodd"
@@ -124,15 +126,15 @@ export default function PhoneInput({
             <input
               placeholder={searchPlaceholder ?? "Search for Country"}
               type="text"
-              className="flex-1 outline-none text-gray-900"
+              className="phone-flex-1 phone-outline-none phone-text-gray-900"
               onChange={(e) => setSearch(e.target.value)}
             />
           </div>
-          <div className="no-scrollbar overflow-scroll flex-1">
+          <div className="no-scrollbar phone-overflow-scroll phone-flex-1">
             {countries.getCountries(search).map((country) => (
               <div
                 key={country[1]}
-                className=" flex py-3 px-4 gap-3  items-center cursor-pointer hover:bg-gray-50"
+                className=" phone-flex phone-py-3 phone-px-4 phone-gap-3  phone-items-center phone-cursor-pointer hover:phone-bg-gray-50"
                 onClick={() => {
                   setSelectedIso2(country[1]);
                   setSearch("");
@@ -142,7 +144,7 @@ export default function PhoneInput({
                 <LazySvg name={country[1]} />
 
                 <p
-                  className="text-lg"
+                  className="phone-text-lg"
                   dangerouslySetInnerHTML={{
                     __html: countries.modifySearch(
                       `${country[0]} (+${country[2]})`,

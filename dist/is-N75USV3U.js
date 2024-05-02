@@ -1,7 +1,0 @@
-import './chunk-JX33TCMM.js';
-
-var l="./assets/flags/is.svg";
-
-export { l as default };
-//# sourceMappingURL=out.js.map
-//# sourceMappingURL=is-N75USV3U.js.map
